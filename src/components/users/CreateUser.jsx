@@ -172,38 +172,38 @@ const   CreateUser = () => {
             </div>
             <form action='' className='flex flex-col custom-scroll gap-3    rounded-lg p-5'>
                     <div>
-                        <input type="text" name='name' value={formData.name} onChange={handleInputChange} required className='border outline-[#80509F] text-sm p-3 w-full  rounded-lg' placeholder="Full Name" />
+                        <input type="text" name='name' value={formData.name} onChange={handleInputChange} required className='border outline-[#387478] text-sm p-3 w-full  rounded-lg' placeholder="Full Name" />
                     </div>
                     <div >
-                        <input type="text" name='username' value={formData.username} onChange={handleInputChange} onBlur={(e) => validateEmail(e.target.value, setEmailError)} required className='border  rounded-lg text-sm outline-[#80509F]  p-3 w-full   ' placeholder="Email" />
+                        <input type="text" name='username' value={formData.username} onChange={handleInputChange} onBlur={(e) => validateEmail(e.target.value, setEmailError)} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Email" />
                         {emailError && (<p className='text-xs text-center text-red-500'>{emailError}</p>)}
                     </div>                        
                    
                     <div className='md:flex gap-5 '>
                         <div className='w-full mb-3 md:mb-0' >
-                            <input type="text" value={formData.number} onChange={handleInputChange} name='number' onBlur={(e) => ValiatePhoneNumber(e.target.value, setNumberError)} required className='border  rounded-lg text-sm outline-[#80509F]  p-3 w-full   ' placeholder="Phone Number" />
+                            <input type="text" value={formData.number} onChange={handleInputChange} name='number' onBlur={(e) => ValiatePhoneNumber(e.target.value, setNumberError)} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Phone Number" />
                             {NumberError && (<p className='text-xs text-center text-red-500'>{NumberError}</p>)}
                         </div>
                         <div className='w-full'>
-                            <input type="date" name='dob' value={formData.dob} onChange={handleInputChange} required className='border  rounded-lg text-sm outline-[#80509F] text-gray-400   p-3 w-full   ' placeholder="Date of Birth" />
+                            <input type="date" name='dob' value={formData.dob} onChange={handleInputChange} required className='border  rounded-lg text-sm outline-[#387478] text-gray-400   p-3 w-full   ' placeholder="Date of Birth" />
                             
                         </div>
                     </div>
                     
                     <div className='md:flex gap-5 '>
                         <div className='w-full mb-3 md:mb-0' >
-                            <input type="password" name='password' value={firstPassword} onBlur={() => validatePassword(firstPassword, setPasswordError)} onChange={setfirstPassword} required className='border  rounded-lg text-sm outline-[#80509F]  p-3 w-full   ' placeholder="Password" />
+                            <input type="password" name='password' value={firstPassword} onBlur={() => validatePassword(firstPassword, setPasswordError)} onChange={setfirstPassword} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Password" />
                             {passwordError && (<p className='text-xs text-center text-red-500'>{passwordError}</p>)}
                         </div>
                         <div className='w-full '>
-                            <input type="password" name='password' value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }} onBlur={checkConfirPassword} required className='border  rounded-lg text-sm outline-[#80509F]  p-3 w-full   ' placeholder="Confirm password" />
+                            <input type="password" name='password' value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }} onBlur={checkConfirPassword} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Confirm password" />
                             {confirmPasswordError && (<p className='text-xs text-center text-red-500'>{confirmPasswordError}</p>)}
                         </div>
                     </div>
 
                     <div>
                         
-                        <input type="text" name='address' value={formData.address} onChange={handleInputChange} required className='border text-sm outline-[#80509F]   rounded-lg p-3 w-full   ' placeholder="Address" />
+                        <input type="text" name='address' value={formData.address} onChange={handleInputChange} required className='border text-sm outline-[#387478]   rounded-lg p-3 w-full   ' placeholder="Address" />
                     </div>
 
                     <div className='md:flex gap-5 '>
@@ -212,7 +212,7 @@ const   CreateUser = () => {
 
                         </div>
                         <div className='w-full'>
-                            <input type="text" name='pincode' value={formData.pincode} onChange={handleInputChange} required onBlur={(e) => validatePincode(e.target.value, setPincodeError)} className='border  rounded-lg text-sm outline-[#80509F]  p-3 w-full   ' placeholder="Pincode" />
+                            <input type="text" name='pincode' value={formData.pincode} onChange={handleInputChange} required onBlur={(e) => validatePincode(e.target.value, setPincodeError)} className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Pincode" />
                             {pincodeError && (<p className='text-xs text-center text-red-500'>{pincodeError}</p>)}
                         </div>
                     </div>
@@ -245,7 +245,7 @@ const   CreateUser = () => {
                                 >
                                     <img src="/camera.png" alt="" className='w-4' />
                                 </div>
-                                <p className='text-[10px] font-bold pt-1 text-[#80509F] font-poppins'>Add your photos</p>
+                                <p className='text-[10px] font-bold pt-1 text-[#387478] font-poppins'>Add your photos</p>
                             </div>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
@@ -259,12 +259,12 @@ const   CreateUser = () => {
                         </div>
                     </div>
                     <div className='flex justify-between pt-8'>
-                        <button className='text-white bg-[#80509F] w-full p-1  rounded-lg' onClick={createCustmor}>Register</button>
+                        <button className='text-white bg-[#387478] w-full p-1  rounded-lg' onClick={createCustmor}>Register</button>
                     </div>
 
                     <p className='text-center'>or</p>
 
-                    <Link to="/login" className='text-white bg-[#80509F] w-full text-center p-1  rounded-lg'>Login</Link>
+                    <Link to="/login" className='text-white bg-[#387478] w-full text-center p-1  rounded-lg'>Login</Link>
             </form>
             {isLoading && <LoadingSpinners />}
             <Toaster />
