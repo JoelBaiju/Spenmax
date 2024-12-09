@@ -172,47 +172,55 @@ const   CreateUser = () => {
             </div>
             <form action='' className='flex flex-col custom-scroll gap-3    rounded-lg p-5'>
                     <div>
-                        <input type="text" name='name' value={formData.name} onChange={handleInputChange} required className='border outline-[#387478] text-sm p-3 w-full  rounded-lg' placeholder="Full Name" />
+                        <label htmlFor="name">Name</label>
+                        <input type="text" name='name' value={formData.name} onChange={handleInputChange} required className='border outline-[#387478] text-sm p-3 w-full  rounded-lg'  />
                     </div>
                     <div >
-                        <input type="text" name='username' value={formData.username} onChange={handleInputChange} onBlur={(e) => validateEmail(e.target.value, setEmailError)} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Email" />
+                        <label htmlFor="username">Email</label>
+                        <input type="text" name='username' value={formData.username} onChange={handleInputChange} onBlur={(e) => validateEmail(e.target.value, setEmailError)} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   '  />
                         {emailError && (<p className='text-xs text-center text-red-500'>{emailError}</p>)}
                     </div>                        
                    
                     <div className='md:flex gap-5 '>
                         <div className='w-full mb-3 md:mb-0' >
-                            <input type="text" value={formData.number} onChange={handleInputChange} name='number' onBlur={(e) => ValiatePhoneNumber(e.target.value, setNumberError)} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Phone Number" />
+                            <label htmlFor="number" >Phone</label>
+                            <input type="text" value={formData.number} onChange={handleInputChange} name='number' onBlur={(e) => ValiatePhoneNumber(e.target.value, setNumberError)} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   '  />
                             {NumberError && (<p className='text-xs text-center text-red-500'>{NumberError}</p>)}
                         </div>
                         <div className='w-full'>
-                            <input type="date" name='dob' value={formData.dob} onChange={handleInputChange} required className='border  rounded-lg text-sm outline-[#387478] text-gray-400   p-3 w-full   ' placeholder="Date of Birth" />
+                            <label htmlFor="dob">DOB</label>
+                            <input type="date" name='dob' value={formData.dob} onChange={handleInputChange} required className='border  rounded-lg text-sm outline-[#387478] text-gray-400   p-3 w-full   ' />
                             
                         </div>
                     </div>
                     
                     <div className='md:flex gap-5 '>
                         <div className='w-full mb-3 md:mb-0' >
-                            <input type="password" name='password' value={firstPassword} onBlur={() => validatePassword(firstPassword, setPasswordError)} onChange={setfirstPassword} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Password" />
+                            <label htmlFor="password">Password</label>
+                            <input type="password" name='password' value={firstPassword} onBlur={() => validatePassword(firstPassword, setPasswordError)} onChange={setfirstPassword} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   '/>
                             {passwordError && (<p className='text-xs text-center text-red-500'>{passwordError}</p>)}
                         </div>
                         <div className='w-full '>
-                            <input type="password" name='password' value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }} onBlur={checkConfirPassword} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Confirm password" />
+                            <label htmlFor="password">Confirm Password</label>
+                            <input type="password" name='password' value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }} onBlur={checkConfirPassword} required className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' />
                             {confirmPasswordError && (<p className='text-xs text-center text-red-500'>{confirmPasswordError}</p>)}
                         </div>
                     </div>
 
                     <div>
-                        
-                        <input type="text" name='address' value={formData.address} onChange={handleInputChange} required className='border text-sm outline-[#387478]   rounded-lg p-3 w-full   ' placeholder="Address" />
+                        <label htmlFor="address">Address</label>
+                        <input type="text" name='address' value={formData.address} onChange={handleInputChange} required className='border text-sm outline-[#387478]   rounded-lg p-3 w-full   '  />
                     </div>
 
                     <div className='md:flex gap-5 '>
                         <div className='w-full mb-3 md:mb-0' >
-                            <Dropdown text="District" p="3" bg="bg-white" textcolor="text-gray-400" data={keralaDistricts} onUpdate={updateDistrict} />
+                            <label htmlFor="">District</label>
+                            <Dropdown   p="3" bg="bg-white" textcolor="text-gray-400" data={keralaDistricts} onUpdate={updateDistrict} />
 
                         </div>
                         <div className='w-full'>
-                            <input type="text" name='pincode' value={formData.pincode} onChange={handleInputChange} required onBlur={(e) => validatePincode(e.target.value, setPincodeError)} className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   ' placeholder="Pincode" />
+                            <label htmlFor="pincode"> Pincode</label>
+                            <input type="text" name='pincode' value={formData.pincode} onChange={handleInputChange} required onBlur={(e) => validatePincode(e.target.value, setPincodeError)} className='border  rounded-lg text-sm outline-[#387478]  p-3 w-full   '  />
                             {pincodeError && (<p className='text-xs text-center text-red-500'>{pincodeError}</p>)}
                         </div>
                     </div>
@@ -220,12 +228,14 @@ const   CreateUser = () => {
                     <div className='md:flex gap-5 '>
                         <div className='w-full mb-3 md:mb-0'>
                             <div>
-                                <Dropdown text="State" p="3" bg="bg-white" textcolor="text-gray-400" data={["Kerela"]} onUpdate={updateState} />
+                                <label htmlFor="">State</label>
+                                <Dropdown text="" p="3" bg="bg-white" textcolor="text-gray-400" data={["Kerela"]} onUpdate={updateState} />
                             </div>
                         </div>
                         <div className='w-full'>
                             <div>
-                                <Dropdown text="Country" p="3" bg="bg-white" textcolor="text-gray-400" data={['India']} onUpdate={updateCountry} />
+                                <label htmlFor="">Country</label>
+                                <Dropdown  p="3" bg="bg-white" textcolor="text-gray-400" data={['India']} onUpdate={updateCountry} />
                             </div>
                         </div>
                     </div>

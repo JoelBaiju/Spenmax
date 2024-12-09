@@ -390,12 +390,21 @@ const VendorRegisterationForm = () => {
                                 <input type="text" value={formData.facebook_link} name='facebook_link' onChange={handleInputChange} className='border text-sm   outline-0 border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter" />
                             </div>
                         </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Normal Working hours [from time, to time]</p>
-                            <div className='py-2'>
-                                <input type="time" value={formData.NormalWorkingHoursFrom} name='NormalWorkingHoursFrom' required onChange={handleInputChange} className="border border-gray-300 outline-0 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                        <div className='md:w-full md:flex gap-2 items-end'>
+                            <div className='w-full py-2'>
+                                <p className='text-xs text-gray-400'>Normal Working hours [from time, to time]</p>
+                                <div className='py-2'>
+                                    <input type="time" value={formData.NormalWorkingHoursFrom} name='NormalWorkingHoursFrom' required onChange={handleInputChange} className="border border-gray-300 outline-0 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                                </div>
+                            </div>
+                            <div className='w-full py-2'>
+                                <p className='text-xs  text-gray-400'>To</p>
+                                <div className='py-2'>
+                                    <input type="time" name='NormalWorkingHoursTo' value={formData.NormalWorkingHoursTo} required onChange={handleInputChange} className="border border-gray-300 outline-0 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
                     <div className='md:w-4/12'>
@@ -411,15 +420,12 @@ const VendorRegisterationForm = () => {
                                 <input type="text" name='instagram_link' value={formData.instagram_link} onChange={handleInputChange} className='border text-sm outline-0 border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter" />
                             </div>
                         </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs  text-white'>to</p>
-                            <div className='py-2'>
-                                <input type="time" name='NormalWorkingHoursTo' value={formData.NormalWorkingHoursTo} required onChange={handleInputChange} className="border border-gray-300 outline-0 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
-                            </div>
-                        </div>
+
                     </div>
 
+
                     <div className='md:w-4/12'>
+
                         <div className='w-full py-2'>
                             <p className='text-xs text-gray-400'>Google Map link</p>
                             <div className='py-2'>
@@ -432,7 +438,8 @@ const VendorRegisterationForm = () => {
                                 <input type="text" name='youtube_link' value={formData.youtube_link} onChange={handleInputChange} className='border text-sm outline-0 border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter" />
                             </div>
                         </div>
-                        <div className='w-full py-2'>
+                        <div className='w-full py-2 flex '>
+
                             <p className='text-xs text-gray-400'>Home delivery/home service [Y/N]</p>
                             <div className='py-2 flex'>
                                 <div className='flex items-center p-3 gap-5'>
@@ -461,13 +468,25 @@ const VendorRegisterationForm = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className='md:flex gap-6'>
-                    <div className='w-6/12'>
-                        <p className='text-xs text-gray-400'>Photos of store</p>
-                    </div>
-                    <div className='w-6/12'>
-                        <p className='text-xs text-gray-400'>Head Office Address</p>
-                    </div>
+                    {/* <div className='md:w-4/12 md:flex gap-2 items-end'>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Normal Working hours [from time, to time]</p>
+                            <div className='py-2'>
+                                <input type="time" value={formData.NormalWorkingHoursFrom} name='NormalWorkingHoursFrom' required onChange={handleInputChange} className="border border-gray-300 outline-0 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                            </div>
+                        </div>
+                        <div className='w-full py-2'>
+                            <p className='text-xs  text-white'>to</p>
+                            <div className='py-2'>
+                                <input type="time" name='NormalWorkingHoursTo' value={formData.NormalWorkingHoursTo} required onChange={handleInputChange} className="border border-gray-300 outline-0 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                            </div>
+                        </div>
+                    </div> */}
+
+
+
                 </div>
                 <div className='md:flex gap-6 mt-2 '>
                     <div className='md:w-6/12'>
@@ -502,7 +521,8 @@ const VendorRegisterationForm = () => {
                     </div>
                     <div className='md:w-6/12 '>
                         <div className=''>
-                            <input type="text" name='head_office_address' value={formData.head_office_address} onChange={handleInputChange} className='border outline-0 h-[100px] text-sm text-gray-400  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter" />
+                            <label htmlFor="address" className='text-xs text-gray-400'>Office Address</label>
+                            <input id='address' type="text" name='head_office_address' value={formData.head_office_address} onChange={handleInputChange} className='border outline-0 h-[100px] text-sm text-gray-400  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter" />
                         </div>
                         <div className='flex  mt-4'>
                             <button className='py-1 px-2 mx-4 bg-[#649597] rounded-lg text-white w-3/6 '>Previous</button>

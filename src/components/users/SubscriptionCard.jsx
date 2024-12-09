@@ -6,7 +6,7 @@ const SubscriptionCard = ({ data, displayRazorpayPaymentSdk }) => {
     const activeCategories = data?.package_detail?.categories.filter(category => category.is_active);
 
     const redirectToWhatsApp = (id) => {
-        const phoneNumber = '9048001820';
+        const phoneNumber = '9037975042';
 
         const whatsappUrl = `https://wa.me/${phoneNumber}`;
 

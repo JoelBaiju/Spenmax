@@ -13,7 +13,7 @@ const VendorRegister = () => {
 
     return (
         <div
-            className="bg-cover bg-center w-full h-screen md:flex overflow-hidden fixed "
+            className="bg-cover bg-center w-full  md:flex  "
         >
             <div className=' w-full  flex flex-col justify-center  items-center h-full md:flex-row  '>
               
