@@ -226,6 +226,29 @@ const CreateCoustmer = () => {
 
 
                 <div className='w-6/12'>
+                   
+                    <div>
+                        <p className='text-xs text-gray-400'>Address</p>
+                        <div className='py-2'>
+                            <input type="text" name='address' value={formData.address} onChange={handleInputChange} required className='border text-sm outline-[#688687] border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter Address" />
+                        </div>
+                    </div>
+                   
+                    <div className='flex gap-5 '>
+                        
+                        <div className='w-full'>
+                            <p className='text-xs text-gray-400'>Country</p>
+                            <div className='py-2 '>
+                                <Dropdown text="Choose Country" p="3" textcolor={`${formData.country ? "text-dark" : "text-gray-400"}`} data={['India']} onUpdate={updateCountry} />
+                            </div>
+                        </div>
+                        <div className='w-full'>
+                            <p className='text-xs text-gray-400'>State</p>
+                            <div className='py-2'>
+                                <Dropdown text="Choose State" p="3" textcolor={`${formData.state ? "text-dark" : "text-gray-400"}`} data={['Kerela']} onUpdate={updateState} />
+                            </div>
+                        </div>
+                    </div>
                     <div>
                         <p className='text-xs text-gray-400'>District</p>
                         <div className='py-2'>
@@ -233,30 +256,10 @@ const CreateCoustmer = () => {
                         </div>
                     </div>
                     <div>
-                        <p className='text-xs text-gray-400'>Address</p>
-                        <div className='py-2'>
-                            <input type="text" name='address' value={formData.address} onChange={handleInputChange} required className='border text-sm outline-[#688687] border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter Address" />
-                        </div>
-                    </div>
-                    <div>
                         <p className='text-xs text-gray-400'>Pin Code</p>
                         <div className='py-2'>
                             <input type="text" name='pincode' value={formData.pincode} onChange={handleInputChange} required onBlur={(e) => validatePincode(e.target.value, setPincodeError)} className='border text-sm outline-[#688687] border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter Pincode" />
                             {pincodeError && (<p className='text-xs text-center text-red-500'>{pincodeError}</p>)}
-                        </div>
-                    </div>
-                    <div className='flex gap-5 '>
-                        <div className='w-full'>
-                            <p className='text-xs text-gray-400'>State</p>
-                            <div className='py-2'>
-                                <Dropdown text="Choose State" p="3" textcolor={`${formData.state ? "text-dark" : "text-gray-400"}`} data={['Kerela']} onUpdate={updateState} />
-                            </div>
-                        </div>
-                        <div className='w-full'>
-                            <p className='text-xs text-gray-400'>Country</p>
-                            <div className='py-2 '>
-                                <Dropdown text="Choose Country" p="3" textcolor={`${formData.country ? "text-dark" : "text-gray-400"}`} data={['India']} onUpdate={updateCountry} />
-                            </div>
                         </div>
                     </div>
                     <div className='flex gap-4'>

@@ -216,14 +216,77 @@ const VendorRegisterationForm = () => {
                         <p className='text-xs font-bold pt-3 text-[#649597] font-poppins'>Upload Logo</p>
                     </div>
                 </div>
-                <div className='md:flex gap-6'>
-                    <div className='md:w-4/12'>
+                <div className='md:flex md:flex-col gap-6'>
+                    <div className='w-full gap-5 md:flex'>
                         <div className='w-full py-2'>
                             <p className='text-xs text-gray-400'>Name of Organization</p>
                             <div className='py-2'>
                                 <input type="text" name='organization' value={formData.organization} required onChange={handleInputChange} className='border outline-0 text-sm  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter name" />
                             </div>
                         </div>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Name of Owner</p>
+                            <div className='py-2'>
+                                <input type="text" name='owner' value={formData.owner} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter name" />
+                            </div>
+                        </div>
+
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Key person name / Manager name</p>
+                            <div className='py-2'>
+                                <input type="text" value={formData.KeyPersonName} required name='KeyPersonName' onChange={handleInputChange} className='border text-sm outline-0 text-gray-400  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter name" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='md:flex md:flex-row w-full gap-5'>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Key Person Contact (Manager) Number</p>
+                            <div className='py-2'>
+                                <input type="text" name='KeyPersonContact' value={formData.KeyPersonContact} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter number" />
+                            </div>
+                        </div>
+
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Select country</p>
+                            <div className='py-2'>
+                                <Dropdown text="Choose Country" p='3' font="font-normal" textcolor={`${formData.country ? "text-dark" : "text-gray-400"}`} data={["India"]} onUpdate={updateCountry} />
+                            </div>
+                        </div>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Select State</p>
+                            <div className='py-2'>
+                                <Dropdown text="Choose State" p='3' font="font-normal" textcolor={`${formData.State ? "text-dark" : "text-gray-400"}`} data={["Kerela"]} onUpdate={updateState} />
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div className='w-full gap-5 md:flex md:flex-row'>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400 '>Select District</p>
+                            <div className='py-2'>
+                                <Dropdown text="Choose District" p='3' font="font-normal" textcolor={`${formData.District ? "text-dark" : "text-gray-400"}`} data={districts} onUpdate={updateDistrict} />
+                            </div>
+                        </div>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Town</p>
+                            <div className='py-2'>
+                                <input type="text" name='Town' value={formData.Town} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter Town " />
+                            </div>
+                        </div>
+                        <div className='w-full py-2'>
+                            <p className='text-xs text-gray-400'>Locality</p>
+                            <div className='py-2'>
+                                <input type="text" name='Locality' value={formData.Locality} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter locality" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className='w-full gap-5 md:flex md:flex-row'>
                         <div className='w-full py-2'>
                             <p className='text-xs text-gray-400'>Pin Code</p>
                             <div className='py-2'>
@@ -237,48 +300,6 @@ const VendorRegisterationForm = () => {
                             </div>
                         </div>
                         <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400 '>Select District</p>
-                            <div className='py-2'>
-                                <Dropdown text="Choose District" p='3' font="font-normal" textcolor={`${formData.District ? "text-dark" : "text-gray-400"}`} data={districts} onUpdate={updateDistrict} />
-                            </div>
-                        </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Key person name / Manager name</p>
-                            <div className='py-2'>
-                                <input type="text" value={formData.KeyPersonName} required name='KeyPersonName' onChange={handleInputChange} className='border text-sm outline-0 text-gray-400  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter name" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='md:w-4/12'>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Name of Owner</p>
-                            <div className='py-2'>
-                                <input type="text" name='owner' value={formData.owner} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter name" />
-                            </div>
-                        </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Locality</p>
-                            <div className='py-2'>
-                                <input type="text" name='Locality' value={formData.Locality} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter " />
-                            </div>
-                        </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Select State</p>
-                            <div className='py-2'>
-                                <Dropdown text="Choose State" p='3' font="font-normal" textcolor={`${formData.State ? "text-dark" : "text-gray-400"}`} data={["Kerela"]} onUpdate={updateState} />
-                            </div>
-                        </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Key Person Contact (Manager) Number</p>
-                            <div className='py-2'>
-                                <input type="text" name='KeyPersonContact' value={formData.KeyPersonContact} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter Owners name" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='md:w-4/12'>
-                        <div className='w-full py-2'>
                             <p className='text-xs text-gray-400'>Mobile Number</p>
                             <div className='py-2'>
                                 <input type="text" name='mobile_number'
@@ -290,24 +311,17 @@ const VendorRegisterationForm = () => {
                                 {NumberError && (<p className='text-xs text-center text-red-500'>{NumberError}</p>)}
                             </div>
                         </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Town</p>
-                            <div className='py-2'>
-                                <input type="text" name='Town' value={formData.Town} required onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter number" />
-                            </div>
-                        </div>
-                        <div className='w-full py-2'>
-                            <p className='text-xs text-gray-400'>Select country</p>
-                            <div className='py-2'>
-                                <Dropdown text="Choose Country" p='3' font="font-normal" textcolor={`${formData.country ? "text-dark" : "text-gray-400"}`} data={["India"]} onUpdate={updateCountry} />
-                            </div>
-                        </div>
+
+
                         <div className='w-full py-2'>
                             <p className='text-xs text-gray-400'>Land phone</p>
                             <div className='py-2'>
                                 <input type="text" name='Landphone' value={formData.Landphone} onChange={handleInputChange} className='border text-sm text-gray-400 outline-0  border-gray-200 p-3 w-full rounded-sm bg-gray-100' placeholder="Enter number" />
                             </div>
                         </div>
+
+
+
                     </div>
                 </div>
 
