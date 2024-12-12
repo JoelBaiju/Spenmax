@@ -43,7 +43,7 @@ const UserProfileDetails = ({ data, onOpen }) => {
                             <div className="px-4 py-6">
                                 <img
                                     className="w-24 h-24 mx-auto rounded-full"
-                                    src="/man.png"
+                                    src={data.image === null ? "/man.png" :data.image}
                                     alt="User Profile"
                                 />
                                 <div className="text-center mt-4">

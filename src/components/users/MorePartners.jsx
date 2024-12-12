@@ -55,7 +55,7 @@ const MorePartners = () => {
                     </div>
                 </div>
             </div>
-            <div className='bg-white rounded-lg m-6 p-6 shadow-lg md:flex  gap-3'>
+            <div className='border-[1px] border-[#678B8D] rounded-lg m-6 p-6 shadow-lg md:flex  gap-3'>
 
                 <div className='md:w-4/12 mt-11  order-1'>
                     {branchDetails && <ServiceProvider branchDetails={branchDetails} />}

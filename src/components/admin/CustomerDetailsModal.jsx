@@ -119,22 +119,22 @@ const CustomerDetailsModal = ({ isOpen, onClose, data, render, addPackage }) => 
 
 
     return (
-        <div className={`fixed z-10 inset-0 overflow-y-auto ${isOpen ? 'block' : 'hidden'}`}>
-            <div className="flex items-center justify-center min-h-screen">
+        <div className={` fixed z-10 inset-0 overflow-y-auto ${isOpen ? 'block' : 'hidden'}`}>
+            <div className="  flex items-center justify-center min-h-screen">
                 <div className="fixed inset-0 transition-opacity">
                     <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
                 </div>
-                <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-1/2 w-full">
-                    <div className="bg-[#688687] px-4 py-5 sm:px-6">
+                <div className=" rounded-lg   overflow-hidden shadow-xl transform transition-all w-5/6 ">
+                    <div className=" w-full bg-[#688687] px-4 py-5 sm:px-6">
                         <h3 className="text-lg text-center font-medium leading-6 text-white">CUSTOMER DETAILS</h3>
                     </div>
                     
-                    <div className="bg-white px-4 py-4 sm:px-6 ">
-                        <div className="space-y-4">
+                    <div className="bg-white w-full px-4 py-4 sm:px-6 ">
+                        <div className="w-full space-y-4">
                             <div>
                                 <div className='flex gap-5 items-center justify-center'>
 
-                                    <div className='border p-2 hover:border-[#9F5080]'>
+                                    <div className='border p-2 hover:border-[#678B8D]'>
                                         {data.image ? <img src={data.image} alt="Customer" className="w-full h-auto" /> : <img src="/man.png" alt="Customer" className="w-[100px] h-[100px] image-cover" />}
                                     </div>
                                     <div>
@@ -146,8 +146,8 @@ const CustomerDetailsModal = ({ isOpen, onClose, data, render, addPackage }) => 
                                 <div className='flex gap-5 my-5'>
                                     {!data.is_active && 
                                     <>
-                                    <button className='bg-[#9F5080] text-white px-5 py-2 text-sm rounded-md' onClick={()=>handle_force_verify(data.user)}>Force Verify</button>
-                                    <button className='bg-[#9F5080] text-white px-5 py-2 text-sm rounded-md' onClick={()=>handle_resend_verification(data.user)}>Resend Verification</button>
+                                    <button className='bg-[#678B8D] text-white px-5 py-2 text-sm rounded-md' onClick={()=>handle_force_verify(data.user)}>Force Verify</button>
+                                    <button className='bg-[#678B8D] text-white px-5 py-2 text-sm rounded-md' onClick={()=>handle_resend_verification(data.user)}>Resend Verification</button>
                                     
                                     </>
                                     
@@ -157,36 +157,36 @@ const CustomerDetailsModal = ({ isOpen, onClose, data, render, addPackage }) => 
                                 <div className='grid grid-cols-3 gap-4 my-5'>
                                     <div>
                                         <p className='font-bold mb-2'>Email</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.email_id}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.email_id}</p>
                                     </div>
                                     <div>
                                         <p className='font-bold mb-2'>Number</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.number}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.number}</p>
                                     </div>
                                     <div>
                                         <p className='font-bold mb-2'>Date of Birth</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.dob}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.dob}</p>
                                     </div>
                                     <div className='col-span-2'>
                                         <p className='font-bold mb-2'>Address</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.number}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.number}</p>
                                     </div>
                                     <div>
                                         <p className='font-bold mb-2'>District</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.district}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.district}</p>
                                     </div>
                                     <div>
                                         <p className='font-bold mb-2'>Pincode</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.pincode}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.pincode}</p>
                                     </div>
                                     <div>
                                         <p className='font-bold mb-2'>State</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.state}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.state}</p>
                                     </div>
                                     
                                     <div>
                                         <p className='font-bold mb-2'>Country</p>
-                                        <p className='border p-2 hover:border-[#9F5080]'> {data.country}</p>
+                                        <p className='border p-2 hover:border-[#678B8D]'> {data.country}</p>
                                     </div>
                                     
                                    
@@ -194,18 +194,18 @@ const CustomerDetailsModal = ({ isOpen, onClose, data, render, addPackage }) => 
                                
                             </div>
                             
-                                <div>
+                                <div className='w-full'>
                                     <div className='flex justify-between items-center mb-3'>
                                         <h4 className="font-semibold">PACKAGES</h4>
                                         {!data.isActive && data.is_active && 
                                         
                                         < div className='flex justify-center' >
-                                            <button className='bg-[#9F5080] text-white px-5 py-2 text-sm rounded-md' onClick={() => { setisOPen(true) }}><p >Add Package</p></button>
+                                            <button className='bg-[#678B8D] text-white px-5 py-2 text-sm rounded-md' onClick={() => { setisOPen(true) }}><p >Add Package</p></button>
                                         </div>
                                         
                                         }
                                     </div>
-                                    <table className="min-w-full divide-y divide-gray-200">
+                                    <table className="w-full overflow-x-scroll divide-y divide-gray-200">
                                         <thead className="bg-gray-50">
                                             <tr>
                                                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Package Name</th>
@@ -217,7 +217,7 @@ const CustomerDetailsModal = ({ isOpen, onClose, data, render, addPackage }) => 
 
                                             </tr>
                                         </thead>
-                                        <tbody className="bg-white divide-y divide-gray-200">
+                                        <tbody className="bg-white divide-y  divide-gray-200">
                                             {data.package_c.map((pkg) => (
                                                 <tr key={pkg.id}>
                                                     <td className="px-6 py-4 whitespace-nowrap">{pkg.package_name}</td>

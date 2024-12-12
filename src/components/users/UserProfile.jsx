@@ -10,6 +10,8 @@ import ExpiryModal from './ExpiryModal';
 import toast, { Toaster } from 'react-hot-toast';
 import ProfileImageModal from './ProfileImageModal';
 import UsersCard from './UsersCard';
+import Cookies from 'js-cookie';
+
 
 const UserProfile = () => {
 
@@ -28,7 +30,8 @@ const UserProfile = () => {
     const [formateddata, setFormatedDate] = useState('')
     const [PurchaseDate, setPurchaseDate] = useState('')
     const [isOpen, setisOpen] = useState(false)
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [imageUpload, setImageUpload] = useState(true)
     const [effect, seteffect] = useState(true);
     const [packageExpired, setpackageExpired] = useState(false);
 
@@ -36,11 +39,13 @@ const UserProfile = () => {
     const isDataEmpty = Object.values(Data).every(value => value === '');
 
     useEffect(() => {
-
+            console.log(Cookies.get('uploadWarningShowed'),'helloooooooooooooooooooooo')
         const loginUser = async () => {
             try {
+                console.log(user.token)
                 const response = await get_api(user?.token).get('/shop/customer/detail_update/user/');
                 if (response.status === 200) {
+                    console.log(Data)
                     setData(response.data)
                 }
             } catch (error) {
@@ -75,15 +80,39 @@ const UserProfile = () => {
 
     const onClose = () => {
         setisOpen(false)
+
     }
+
+
+const updateCookie = () => {
+    console.log('gosihs')
+    console.log( Cookies.get('uploadWarningShowed'))
+    Cookies.set('uploadWarningShowed','true', { expires: 7 });
+
+    const msIn7Days = 7 * 24 * 60 * 60 * 1000;
+    setTimeout(() => {
+        Cookies.set('uploadWarningShowed', 'true', { expires: 7 });
+        console.log('Cookie value refreshed!');
+    }, msIn7Days - 60000); 
+};
 
     const onOpen = () => {
         setisOpen(true)
     }
 
-    const handleCloseModal = () => {
+
+    const didUpload = () => {
         seteffect(!effect);
     };
+
+
+
+    const handleImageUploadModal = () => {
+        setImageUpload(!imageUpload)
+        updateCookie()
+    }
+
+
 
     return isDataEmpty ?
         <div>
@@ -115,10 +144,12 @@ const UserProfile = () => {
 
                     <UserProfileDetails data={Data} onOpen={onOpen} />
                 </div>
+                
                 <EditProfileModal isOpen={isOpen} onClose={onClose} data={Data} setData={setData} />
+
                 <Toaster />
-                {Data.image === null && <ProfileImageModal close={handleCloseModal} id={Data.id} />}
-                {packageExpired && <ExpiryModal/>}
+                {Data.image === null && Cookies.get('uploadWarningShowed')==null && imageUpload && <ProfileImageModal didUpload={didUpload} close={handleImageUploadModal} id={Data.id} />}
+                {packageExpired && <ExpiryModal />}
             </div>
         )
 }

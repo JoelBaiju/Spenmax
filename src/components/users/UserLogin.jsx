@@ -21,6 +21,7 @@ const UserLogin = () => {
     const [LoginError, setLoginError] = useState([]);
     const [opemodal, setopemodal] = useState(false);
     const [verify, setverify] = useState('');
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -95,12 +96,21 @@ const UserLogin = () => {
         navigate('/user-register')
     }
 
+    const handleVisibility=()=>{
+        console.log('oi')
+        console.log(isPasswordVisible)
+        setIsPasswordVisible(!isPasswordVisible)
+        document.getElementById('pass')
+
+        
+    }
+
     return (
         <div
             className="bg-cover bg-center w-full h-screen md:flex flex flex-row justify-center items-center fixed bg-gray-200"
-            // style={{ backgroundImage: `url(${backgroundImage})` }}
+        // style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-          
+
             <div className='border-2 pt-10 rounded-xl border-[#5d9395] w-full md:w-4/12 flex flex-col justify-center  items-center  mt-3  md:gap-28 md:flex-row  '>
 
                 <div className='w-9/12  md:w-9/12 lg:w-9/12'>
@@ -132,15 +142,22 @@ const UserLogin = () => {
                                 {emailError && <p className='text-red-500 text-xs font-medium'>{emailError}</p>}
                             </div>
                             <div className='mx-4 my-2'>
-                                <input
-                                    type="password"
-                                    className={`bg-white  rounded-md p-4 text-xs w-full ${passwordError ? 'border-red-500' : ''} outline-[#619b9e]`}
-                                    placeholder='Password'
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    onBlur={() => validatePassword(password, setPasswordError)}
-                                />
+                                <div className='w-full h-full relative flex items-center'>
+                                    <input
+                                        type={isPasswordVisible?'text' : 'password'}
+                                        className={`bg-white rounded-md p-4 text-xs w-full ${passwordError ? 'border-red-500' : ''} outline-[#619b9e]`}
+                                        placeholder='Password'
+                                        value={password}
+                                        id='pass'
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        onBlur={() => validatePassword(password, setPasswordError)}
+                                    />
+                                    <div onClick={()=>handleVisibility()} className='absolute right-4 text-gray-500'>
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
                             </div>
+
                             <div className='pl-2'>
                                 {passwordError && <p className='text-red-500 text-xs font-medium'>{passwordError}</p>}
                             </div>
@@ -149,7 +166,7 @@ const UserLogin = () => {
                                 <img className='w-6 h-5' src="/arrow.png" alt="" />
                             </div>
                             <div className='flex justify-center m-4'>
-                                <button className='text-white bg-[#619b9e] outline-[#513166] w-full rounded-full p-2 border text-xs shadow-xl'>LOGIN</button>
+                                <button className='text-white bg-[#619b9e] outline-[#619b9e] w-full rounded-full p-2 border text-xs shadow-xl'>LOGIN</button>
                             </div>
                             <div className='flex justify-center items-center m-2 mt-10 p-1'>
                                 <p className='text-xs font-bold'>Doesn't have a account yet? <span className='text-[#619b9e] cursor-pointer' onClick={onSigup}>Sign Up</span></p>
@@ -167,7 +184,7 @@ const UserLogin = () => {
                         </div>
                     </form>
                 </div>
-            </div>   
+            </div>
             <Toaster />
             {opemodal && <VerificationModal close={closeModal} verifyApi={verifyApi} />}
         </div>

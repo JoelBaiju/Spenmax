@@ -7,7 +7,7 @@ const PartnersDeatails = ({ Data }) => {
     return Data.length === 0 ?
         <div className='flex justify-center p-5'><p>No data found</p></div>
         : (
-            <div className='border border-gray-300 rounded-sm p-5 md:flex flex-wrap   justify-center overflow-scroll h-[470px] customscrollbar'>
+            <div className='border border-gray-300 rounded-sm md:p-5 md:flex flex-wrap   justify-center overflow-scroll h-[470px] customscrollbar'>
                 {Data?.map((d, i) => (
                     <div className='md:w-6/12 p-3 ' key={i}>
                         <div className='bg-white w-full rounded-md shadow-lg p-3 '>

@@ -4,7 +4,7 @@ const ServicesCard = ({ branchDetails }) => {
     return (
         <div className="bg-white border rounded-lg overflow-hidden shadow-sm">
             <div className="p-6">
-                <h2 className="text-xl font-medium mb-4 text-[#5f1c7c]">Exclusive discount for you</h2>
+                <h2 className="text-xl font-medium mb-4 text-[#678B8D]">Exclusive discount for you</h2>
                 <div className="flex justify-center bg-gray-50 border py-2 px-4 rounded-md mb-4">
                     <p className="text-sm text-gray-600">Facility/Services Offered</p>
                     {/* <p className="text-sm text-gray-600">Max. Discount Permissible [%]</p> */}
@@ -22,7 +22,7 @@ const ServicesCard = ({ branchDetails }) => {
                                             <button className={`text-white font-semibold py-1 px-1 rounded-lg ${offer.discount_type === 'flat' ? 'bg-yellow-500' : 'bg-green-500'}`}>
                                                 <div className="flex items-center gap-2">
                                                     <img src="/fire.png" alt="fire" className="w-4 h-4" />
-                                                    <span className="text-xs">Save with Kriyado</span>
+                                                    <span className="text-xs">Save with Spenmax</span>
                                                 </div>
                                             </button>
                                         </div>
@@ -32,7 +32,7 @@ const ServicesCard = ({ branchDetails }) => {
                                             <button className={`text-white font-semibold py-1 px-1 rounded-lg ${offer.discount_type === 'flat' ? 'bg-yellow-500' : 'bg-green-500'}`}>
                                                 <div className="flex items-center gap-2">
                                                     <img src="/fire.png" alt="fire" className="w-4 h-4" />
-                                                    <span className="text-xs">Save with Kriyado</span>
+                                                    <span className="text-xs">Save with Spenmax</span>
                                                 </div>
                                             </button>
                                         </div>

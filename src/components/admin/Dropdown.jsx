@@ -13,7 +13,7 @@ const Dropdown = ({ text, p, textcolor, font, data, onUpdate, textsize, bg }) =>
         <div className="relative w-full">
             <button
                 onClick={toggleDropdown}
-                className={`${bg ? bg : 'bg-gray-100 border'}  outline-[#80509F] w-full font-bold ${p ? `p-${p}` : 'py-2 px-4'} rounded inline-flex items-center`}
+                className={`${bg ? bg : 'bg-gray-100 border'}  outline-[#678B8D] w-full font-bold ${p ? `p-${p}` : 'py-2 px-4'} rounded inline-flex items-center`}
             >
                 <div className='flex items-center justify-between w-full'>
                     <p className={`${font ? `${font}` : 'font-normal'} ${textcolor ? `${textcolor}` : 'text-gray-400'} ${textsize ? `${textsize}` : 'text-sm '}`}>

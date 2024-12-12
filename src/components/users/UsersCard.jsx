@@ -10,8 +10,8 @@ const UsersCard = ({data,formateddata}) => {
             <div className='flex gap-3 py-3 px-5  ml-3'>
                 <p className='text-lg text-white'>* * * * </p>
                 <p className='text-lg text-white'>* * * * </p>
-                <p className='text-lg text-white'>* * * * </p>
-                <p className='text-lg text-white'>{data?.customer_id?.toString().substring(0, 4)}</p>
+                <p className='text-lg text-white'>*  {data?.customer_id?.toString().substring(0,3)}</p>
+                <p className='text-lg text-white'>{data?.customer_id?.toString().substring(3, 7)}</p>
             </div>
             <div className='absolute top-36 px-5 flex text-white gap-10'>
                 <div>

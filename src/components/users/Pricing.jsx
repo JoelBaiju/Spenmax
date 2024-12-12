@@ -239,7 +239,7 @@ const Pricing = () => {
                                     }`}
                                 onClick={() => setPackageType('ALL')}
                             >
-                                <p className='font-bold font-poppins text-center'>Grand Package</p>
+                                <p className='font-bold font-poppins text-center'>Grand</p>
                             </div>
                         </div>
 

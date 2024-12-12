@@ -50,16 +50,13 @@ const Forgot_Page = () => {
     return (
         <div 
             className="bg-cover bg-center w-full h-screen md:flex fixed"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div className='w-full md:w-4/12 '>
             </div>
             <div className=' w-full md:w-7/12 flex flex-col justify-center  items-center h-full md:gap-28 md:flex-row  '>
-                <div className='w-3/12'>
-                    <img src="/Kriyado Black Logo.png" alt="" />
-                </div>
-                <div className='w-9/12  md:w-6/12 lg:w-6/12'>
-                    <div className='flex justify-center items-center'>
+               
+                <div className='w-9/12 border-[1px] rounded-xl border-[#619b9e]  md:w-6/12 lg:w-6/12'>
+                    <div className='bg-gray-100 pt-6 flex justify-center items-center'>
                         <h1 className='font-bold text-2xl font-sans p-2 '>Forgot</h1>
                     </div>
                     <form onSubmit={handleSubmit} >
@@ -78,7 +75,7 @@ const Forgot_Page = () => {
                             <div className='mx-4 my-2'>
                                 <input
                                     type="text" required
-                                    className={`bg-white  rounded-md p-4 text-xs w-full ${emailError ? 'border-red-500' : ''} outline-[#80509F]`}
+                                    className={`bg-white  rounded-md p-4 text-xs w-full ${emailError ? 'border-red-500' : ''} outline-[#619b9e]`}
                                     placeholder='Email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -91,12 +88,12 @@ const Forgot_Page = () => {
                             
                            
                             <div className='flex justify-center m-4'>
-                                <button className='text-white bg-[#80509F] w-full rounded-full p-2 border text-xs shadow-xl'>ENTER</button>
+                                <button className='text-white bg-[#619b9e] w-full rounded-full p-2 border text-xs shadow-xl'>ENTER</button>
                             </div>
                             <p className='text-center'>or</p>
 
                             <div className='flex justify-center m-4'>
-                            <Link to="/login" className='text-white bg-[#80509F] w-full text-center rounded-full p-2 border text-xs shadow-xl'>LOGIN</Link>
+                            <Link to="/login" className='text-white bg-[#619b9e] w-full text-center rounded-full p-2 border text-xs shadow-xl'>LOGIN</Link>
 
                             </div>
                         </div>
