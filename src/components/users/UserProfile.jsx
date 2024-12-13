@@ -131,7 +131,7 @@ const updateCookie = () => {
                 <div className='bg-[#C0DCDD] rounded-lg m-6 p-2 shadow-lg'>
 
                     <div className='m-2 p-2'>
-                        <div className='flex bg-[#99FDD2] items-center pl-3 sm:w-6/12 md:w-3/12 rounded-full '>
+                        <div className='flex bg-[#99FDD2] items-center pl-3 w-full md:w-3/12 rounded-full '>
                             <div className=''>
                                 <h1 className='text-xs'>Active</h1>
                             </div>

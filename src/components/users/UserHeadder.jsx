@@ -106,7 +106,7 @@ const UserHeadder = () => {
 
     return (
         <div className='bg-[#C0DCDD] shadow-lg m-6 rounded-lg '>
-            <div className=' mx-auto px-4 py-2 md:flex justify-between items-center'>
+            <div className=' mx-auto px-4 md:py-0 py-3 md:flex justify-between items-center'>
                 <div className='flex justify-between items-center'>
                     <img src="/Spenmax transparent 1.png" alt="" className="w-32" />
                     <button
@@ -129,13 +129,13 @@ const UserHeadder = () => {
                     </button>
                 </div>
                 <div className={`md:flex  ${isMenuOpen ? 'block' : 'hidden'}`}>
-                    <div className=' pt-2 flex flex-row justify-around md:flex-row md:space-x-4 items-center ' onClick={handleMenuToggle} >
+                    <div className=' mt-10 md:mt-0  flex flex-row justify-around md:flex-row md:space-x-4 items-center ' onClick={handleMenuToggle} >
                         <UserHeadderNav icon='/home.png' text='Home' to='/' />
                         <UserHeadderNav icon='/team.png' text='Partner' to='/Partners' />
                         <UserHeadderNav icon='/bell (2).png' text='Notifications' to='/Users-Notification' notificationCount={notificationCount} onClickFuntion={onClickFuntion} />
                         <UserHeadderNav icon='/rupee.png' text='Pricing' to='Pricing' />
                     </div>
-                    <div className=" flex items-center justify-end ml-4 mt-4 md:mt-0 relative">
+                    <div className="  flex items-center justify-end ml-4 mt-10 md:mt-0 relative">
                         <img src="/man.png" alt="profile" className="w-4" />
                         <div className="ml-2">
                             <p className="text-xs">Welcome Back</p>
