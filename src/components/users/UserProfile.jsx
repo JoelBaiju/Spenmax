@@ -39,7 +39,6 @@ const UserProfile = () => {
     const isDataEmpty = Object.values(Data).every(value => value === '');
 
     useEffect(() => {
-            console.log(Cookies.get('uploadWarningShowed'),'helloooooooooooooooooooooo')
         const loginUser = async () => {
             try {
                 console.log(user.token)
@@ -137,7 +136,7 @@ const updateCookie = () => {
                                 <h1 className='text-xs'>Active</h1>
                             </div>
                             <div className='bg-black rounded-full h-full p-1 ml-3 w-full  '>
-                                <h1 className='text-white text-xs p-1'>Spenmax Lifestyle + Services</h1>
+                                <h1 className='text-white/75 tracking-wide text-xs p-1'>{Data.package_c.length!=0? Data.package_c[0].package_name:"Package Expired"}</h1>
                             </div>
                         </div>
                     </div>

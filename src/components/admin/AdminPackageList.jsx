@@ -7,6 +7,7 @@ import { get_api } from '../../utils/api';
 import toast, { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import CustomModal from './CustomModal';
+import DeletePackageModal from './DeletePackageModal';
 const AdminPackageList = ({ packages, reRender }) => {
 
     const [openModal, setOpenmodal] = useState(false)
@@ -55,10 +56,14 @@ const AdminPackageList = ({ packages, reRender }) => {
         setData(data)
         setOpenmodal2(true)
     }
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const openDeleteModal = () => setIsModalOpen(true);
+    const closeDeleteModal = () => setIsModalOpen(false);
 
     return (
         <div className='w-full bg-white border border-gray-300 rounded-md p-1 px-4 my-3'>
+
             <div className='flex items-center justify-between p-2'>
                 <p className='text-sm  w-3/12 font-bold '>Package Name</p>
                 <p className='text-sm  w-3/12 font-bold '>Created at</p>
@@ -91,18 +96,25 @@ const AdminPackageList = ({ packages, reRender }) => {
                                 </div>)
                             }
                             {pack.is_active ?
-                                (<div className='p-1 px-4 cursor-pointer' onClick={() => { deletePackage(pack.id) }}>
-                                    <img src="/delete (3).png" alt="" className='w-5 ' />
+                                (<div className='p-1 px-4 cursor-pointer' >
+                                    <button onClick={openDeleteModal}><img src="/delete (3).png" alt="" className='w-5 ' /></button>
+                                    {isModalOpen && (
+
+                                    <DeletePackageModal id={pack.id} closeDeleteModal={closeDeleteModal} deletePackage={deletePackage}/>
+                                    )}
                                 </div>)
                                 :
                                 (<div className='p-1 px-4 cursor-pointer' onClick={() => { toast.error('already deleted') }}>
                                     <img src="/recycle-bin.png" alt="" className='w-5 ' />
                                 </div>)
                             }
+
                         </div>
+
                     </div>
                 ))}
 
+                
             </div>
             <Toaster />
             {openModal && Object.keys(modalPackageData).length > 0 && (

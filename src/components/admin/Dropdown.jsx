@@ -34,7 +34,7 @@ const Dropdown = ({ text, p, textcolor, font, data, onUpdate, textsize, bg }) =>
                 </div>
             </button>
             {isOpen && (
-                <div className={`absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg ${data?.length !== 1 ? 'h-[150px]' : ''} overflow-scroll overflow-x-hidden customscrollbar`}>
+                <div className={`absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg ${data?.length !== 1 ? 'h-[150px]' : ''} overflow-scroll overflow-x-hidden `}>
                     {data && data.map((d) => (
                         <button className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-gray-100" key={d.name ? d.name : d}
                             onClick={() => {

@@ -1,11 +1,20 @@
 import React from 'react'
 
 const UsersCard = ({data,formateddata}) => {
+    console.log(data)
+    console.log(data.is_expired)
+    const packageExpired = (
+        <>
+          Package Expired <i className="fa-solid fa-triangle-exclamation fa-xl animate-pulse" style={{ color: '#ff622e' }} />
+        </>
+      );
+      
+
     return (
         <div className='bg-[#657575] rounded-md shadow-lg  '>
             <div className='flex gap-3 px-5 pt-5'>
                 <img src="/chip.png" alt="" />
-                <p className='text-white text-lg'>Spenmax Lifestyle + Services</p>
+                <p className="text-white text-lg">{data.package_c.length!=0 ? data.package_c[0].package_name:packageExpired}</p>
             </div>
             <div className='flex gap-3 py-3 px-5  ml-3'>
                 <p className='text-lg text-white'>* * * * </p>

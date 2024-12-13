@@ -132,10 +132,10 @@ const CustomerDetailsModal = ({ isOpen, onClose, data, render, addPackage }) => 
                     <div className="bg-white w-full px-4 py-4 sm:px-6 ">
                         <div className="w-full space-y-4">
                             <div>
-                                <div className='flex gap-5 items-center justify-center'>
+                                <div className='flex flex-col gap-5 items-center justify-center'>
 
                                     <div className='border p-2 hover:border-[#678B8D]'>
-                                        {data.image ? <img src={data.image} alt="Customer" className="w-full h-auto" /> : <img src="/man.png" alt="Customer" className="w-[100px] h-[100px] image-cover" />}
+                                        {data.image ? <img src={data.image} alt="Customer" className="w-full h-32" /> : <img src="/man.png" alt="Customer" className="w-[100px] h-[100px] image-cover" />}
                                     </div>
                                     <div>
                                         <p className="font-semibold text-2xl">{data.name}</p>

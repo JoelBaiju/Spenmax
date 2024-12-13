@@ -144,7 +144,7 @@ const UserPartners = () => {
         <div >
             <div className='md:absolute md:top-0 md:right-0 md:mt-[12rem] '>
                 <div className='m-2 p-2'>
-                    <div className='flex bg-[#99FDD2] items-center pl-3 sm:w-6/12 md:w-full justify-center rounded-full '>
+                    <div className='flex bg-[#99FDD2] items-center pl-3 sm:w-8/12 md:w-full justify-center rounded-full '>
                         <div className=''>
                             <h1 className='text-xs'>Active</h1>
                         </div>
@@ -154,7 +154,7 @@ const UserPartners = () => {
                     </div>
                 </div>
             </div>
-            <div className='bg-gray-50 rounded-lg m-6 p-6 shadow-lg md:flex  gap-3'>
+            <div className='bg-gray-50 border-[1px] border-[#4f6e6f] rounded-lg m-6 p-6 shadow-lg md:flex  gap-3'>
                 <div className='md:w-10/12 '>
 
                     <div className='flex items-center flex-col md:flex-row'>

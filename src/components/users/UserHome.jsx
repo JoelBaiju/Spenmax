@@ -8,6 +8,7 @@ import AdCarousel from '../ResuableComponents/AdCarousel';
 const UserHome = () => {
 
     const user = useSelector(state => state.auth.user);
+    console.log(user)
     
     return (
         <div>

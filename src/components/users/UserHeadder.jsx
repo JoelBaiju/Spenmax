@@ -105,7 +105,7 @@ const UserHeadder = () => {
     }
 
     return (
-        <div className='bg-[#C0DCDD] shadow-lg m-6 rounded-lg'>
+        <div className='bg-[#C0DCDD] shadow-lg m-6 rounded-lg '>
             <div className=' mx-auto px-4 py-2 md:flex justify-between items-center'>
                 <div className='flex justify-between items-center'>
                     <img src="/Spenmax transparent 1.png" alt="" className="w-32" />
@@ -128,14 +128,14 @@ const UserHeadder = () => {
                         </svg>
                     </button>
                 </div>
-                <div className={`md:flex ${isMenuOpen ? 'block' : 'hidden'}`}>
-                    <div className='flex flex-col md:flex-row md:space-x-4 items-center mt-4 md:mt-0' onClick={handleMenuToggle} >
+                <div className={`md:flex  ${isMenuOpen ? 'block' : 'hidden'}`}>
+                    <div className=' pt-2 flex flex-row justify-around md:flex-row md:space-x-4 items-center ' onClick={handleMenuToggle} >
                         <UserHeadderNav icon='/home.png' text='Home' to='/' />
                         <UserHeadderNav icon='/team.png' text='Partner' to='/Partners' />
                         <UserHeadderNav icon='/bell (2).png' text='Notifications' to='/Users-Notification' notificationCount={notificationCount} onClickFuntion={onClickFuntion} />
                         <UserHeadderNav icon='/rupee.png' text='Pricing' to='Pricing' />
                     </div>
-                    <div className="flex items-center ml-4 mt-4 md:mt-0 relative">
+                    <div className=" flex items-center justify-end ml-4 mt-4 md:mt-0 relative">
                         <img src="/man.png" alt="profile" className="w-4" />
                         <div className="ml-2">
                             <p className="text-xs">Welcome Back</p>
@@ -145,7 +145,7 @@ const UserHeadder = () => {
                             <img src="/down-arrow.png" alt="down-arrow" className="w-4" />
                         </button>
                         {isOpen && (
-                            <div className="absolute border top-full left-0 mt-1 bg-white shadow-md rounded-md w-36 z-10">
+                            <div className="absolute border flex justify-center top-full right-0 mt-1 bg-white shadow-md rounded-md w-36 z-10">
                                 <ul>
                                     <li>
                                         <a href="#" onClick={OpenProfile} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
