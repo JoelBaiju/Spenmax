@@ -19,6 +19,10 @@ const UserPartners = () => {
     const user = useSelector(state => state.auth.user);
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(()=>{
+        searchFilter()
+    },[seletedCategories])
+
     const fetchUserData = async () => {
         try {
             const response = await get_api(user?.token).get('/shop/vendor/branches/customer/');
@@ -65,6 +69,7 @@ const UserPartners = () => {
 
     const searchFilter = async () => {
         if (Value !== '' && seletedCategories === '') {
+            console.log('if ' ,Value,seletedCategories)
             setinputFocous(false)
             try {
                 const response = await get_api(user?.token).get(`/shop/vendor/branches/customer/?search=${Value}`);
@@ -91,6 +96,7 @@ const UserPartners = () => {
                 }
             }
         } else if (seletedCategories !== '' && Value == '') {
+            console.log('else if',Value,seletedCategories)
             try {
                 const response = await get_api(user?.token).get(`/shop/vendor/branches/customer/?category__name=${seletedCategories}`);
                 if (response.status === 200 && response.data.length >= 0) {
@@ -117,9 +123,10 @@ const UserPartners = () => {
             }
 
         } else {
-            setValue('')
+            console.log('else block',Value,seletedCategories)
+            setValue('') 
             setseletedCategories('')
-            toast.error("Please use only one filter at a time.")
+            // toast.error("Please use only one filter at a time.")
         }
     }
 
@@ -170,7 +177,7 @@ const UserPartners = () => {
                             </div>
                         </div>
                         <div className='md:w-80'>
-                            <Dropdown data={categories} p='2' onUpdate={setseletedCategories} text='Category' bg='bg-gray-50' textcolor='text-black' font='font-medium' textsize='text-sm' />
+                            <Dropdown search={searchFilter} data={categories} p='2' onUpdate={setseletedCategories} text='Category' bg='bg-gray-50' textcolor='text-black' font='font-medium' textsize='text-sm' />
                         </div>
                         <hr className='w-full md:hidden text-black border-[1px] ' />
 
