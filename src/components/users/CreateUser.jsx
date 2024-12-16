@@ -222,7 +222,7 @@ const CreateUser = () => {
                     <div className='w-full mb-3 md:mb-0'>
                         <div>
                             <label htmlFor="">State</label>
-                            <Dropdown text="" p="3" bg="bg-white" textcolor="text-gray-400" data={["Kerela"]} onUpdate={updateState} />
+                            <Dropdown text="" p="3" bg="bg-white" textcolor="text-gray-400" data={["Kerala"]} onUpdate={updateState} />
                         </div>
                     </div>
 
