@@ -96,7 +96,7 @@ const CreateUser = () => {
         try {
 
             const emptyFields = Object.entries(formData)
-                .filter(([key, value]) => value === '' || (key === 'image' && !value))
+                .filter(([key, value]) => value === '')
                 .map(([key]) => key);
 
             if (emptyFields.length > 0) {
