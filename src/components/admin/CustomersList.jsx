@@ -5,6 +5,7 @@ import { get_api } from '../../utils/api';
 import { useSelector } from 'react-redux';
 import CustomerDetailsModal from './CustomerDetailsModal';
 import CustmorPackageModal from './CustmorPackageModal';
+import CustomerEditModal from './CustomerEditModal';
 
 const CustomersList = ({ search, searchStatus, refresh, apiName }) => {
 
@@ -48,11 +49,16 @@ const CustomersList = ({ search, searchStatus, refresh, apiName }) => {
 
   }
 
-  const fetchCustomersDetails = async (id) => {
+  const fetchCustomersDetails = async (id,edit) => {
     try {
       const response = await get_api(user?.token).get(`/shop/customer/${id}/`);
       if (response.status === 200) {
-        setopenModal(true)
+        if (edit===true){
+          setShowModal(true)
+        }
+        else{
+          setopenModal(true)
+        }
         setcustomerDetail(response.data)
       }
     } catch (error) {
@@ -109,6 +115,15 @@ const CustomersList = ({ search, searchStatus, refresh, apiName }) => {
   }
 
 
+
+
+  const [showModal, setShowModal] = useState(false);
+  const closeEditModal = () => setShowModal(false);
+
+
+
+
+
   return (
     <div className='overflow-x-scroll h-[400px] customscrollbar'>
       {customers.length === 0 ? (
@@ -135,11 +150,18 @@ const CustomersList = ({ search, searchStatus, refresh, apiName }) => {
               <p className='text-xs'>{Customer.email_id}</p>
             </div>
             <div>
-              <button className='text-sm text-gray-500 border border-gray-400 rounded-full px-3 ' onClick={() => { fetchCustomersDetails(Customer.id) }}>Details</button>
+              <button className='text-sm text-gray-500 border border-gray-400 rounded-full px-3 ' onClick={() => { fetchCustomersDetails(Customer.id,false) }}>Details</button>
+              <button onClick={() => { fetchCustomersDetails(Customer.id,true) }} className='text-sm text-gray-500 border ml-5 border-gray-400 rounded-full px-3 '>Edit</button>
             </div>
           </div>
         )))}
+
       {customerDetail && <CustomerDetailsModal data={customerDetail} isOpen={openModal} onClose={onClose} render={render} addPackage={addPackage} />}
+      
+      <CustomerEditModal show={showModal} closeModal={closeEditModal} data={customerDetail} />
+
+
+
       <Toaster />
     </div>
   )

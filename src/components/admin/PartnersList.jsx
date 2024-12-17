@@ -28,7 +28,9 @@ const PartnersList = ({ vendors, fetchComapnyDetails }) => {
                             <p className='text-xs'>{vendor.mobile_number}</p>
                         </div>
                         <div className='flex justify-end'>
-                            <button className='text-sm text-gray-500 border border-gray-400 rounded-full px-3 ' onClick={() => { fetchComapnyDetails(vendor.id) }}>Details</button>
+                            <button className='text-sm text-gray-500 border border-gray-400 rounded-full px-3 ' onClick={() => { fetchComapnyDetails(vendor.id , false) }}>Details</button>
+                            <button className='text-sm text-gray-500 border border-gray-400 rounded-full px-3 ' onClick={() => { fetchComapnyDetails(vendor.id,true) }}>Edit</button>
+
                         </div>
                     </div>
                 ))}

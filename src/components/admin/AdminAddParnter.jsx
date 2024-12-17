@@ -7,6 +7,7 @@ import { get_api } from '../../utils/api'
 import { useSelector } from 'react-redux'
 import PartnerListSkelton from '../ResuableComponents/PartnerListSkelton'
 import CompanyModal from './CompanyModal'
+import PartnerEditModal from './PartnerEditModal'
 
 const AdminAddParnter = () => {
 
@@ -81,12 +82,28 @@ const AdminAddParnter = () => {
         searchCompany(searchQuery)
     }
 
-    const fetchComapnyDetails = async (id) => {
+
+
+
+
+
+    const [showEditModal, setShowEditModal] = useState(false);
+    const closeEditModal = () => setShowEditModal(false);
+
+
+
+
+    const fetchComapnyDetails = async (id, edit) => {
         try {
             const response = await get_api(user?.token).get(`/shop/vendor/company/${id}/`);
             if (response.status === 200) {
                 setcompanyDetails(response.data)
-                setisOPen(true)
+                if (edit===true){
+                    setShowEditModal(true)
+                }
+                else{
+                    setisOPen(true)
+                }
             }
         } catch (error) {
             console.log(error);
@@ -170,6 +187,9 @@ const AdminAddParnter = () => {
 
             </div>
             <CompanyModal data={companyDetails} isOpen={isOPen} onClose={closingModal} />
+
+            <PartnerEditModal show={showEditModal} closeModal={closeEditModal} data={companyDetails} />
+
             <Toaster />
         </div>
     )
